@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const dbconnection = require("./app/models/db");
 //importing Routes
-const getCustomerRoutes = require("./app/routes/getCustomer");
+const CustomerRoutes = require("./app/routes/customerRoutes");
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 dbconnection.startConnection;
 
 //Forward all routes for customers to 'getCustomerRoutes' router
-app.use("/customer", getCustomerRoutes);
+app.use("/customer", CustomerRoutes);
 
 // simple route
 app.get("/", (req, res) => {
