@@ -1,10 +1,8 @@
-const dbconnection = require("../models/db")
-
-const Customer = require("../models/customerModel")
+const Tags = require("../models/tagsModel")
 
 
 exports.findAll = (req, res) => {
-    Customer.getAll((err, data) => {
+    Tags.getAll((err, data) => {
         if(err){
             res.send(err)
         }
@@ -14,7 +12,7 @@ exports.findAll = (req, res) => {
 }
 
 exports.findOne = (req, res) => {
-    Customer.getById(req.params.id, (err, data) => {
+    Tags.getById(req.params.id, (err, data) => {
         if(err){
             res.send(err)
         }
@@ -24,7 +22,7 @@ exports.findOne = (req, res) => {
 }
 
 exports.deleteOne = (req, res) => {
-    Customer.deleteById(req.params.id, (err, data) => {
+    Tags.deleteById(req.params.id, (err, data) => {
         if(err){
             res.send(err)
             return
@@ -35,7 +33,7 @@ exports.deleteOne = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-    Customer.delete((err, data) => {
+    Tags.delete((err, data) => {
         if(err){
             res.send(err)
             return
@@ -46,7 +44,7 @@ exports.delete = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    Customer.update(req.body, (err, data) => {
+    Tags.update(req.body, (err, data) => {
         if(err){
             res.send(err)
             return
@@ -59,7 +57,7 @@ exports.update = (req, res) => {
 exports.insert = (req, res) => {
     console.log(req.body)
 
-    Customer.add(req.body, (err, data) => {
+    Tags.add(req.body, (err, data) => {
         if(err){
             res.send(err)
             return
